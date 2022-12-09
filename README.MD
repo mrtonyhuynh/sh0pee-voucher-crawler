@@ -1,6 +1,8 @@
-# PYTHON
+# SH0PEE VOUCHER CRAWLER
 
-Learn: <https://www.pythoncheatsheet.org/>
+Written by Python - Jupyter Notebook
+
+> Quick start with Python: <https://www.pythoncheatsheet.org/>
 
 ## Quick start
 
