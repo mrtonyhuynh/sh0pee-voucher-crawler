@@ -1,0 +1,20 @@
+let result = JSON.parse("["P7OXGOYAFH", "TCBTRAGOP", "COSLUXRP", "COSLUX12A", "COSLUX12", "VISA50", "STANEWBUYDEC", "T12BANMOI30K", "SRDECTT1", "SRDECTT3", "1112GIAM10K0PH", "SPPDEC12EB10K", "1212EBVCB25K", "1212EBVFASHION25K", "1212EBVLIFE25K", "SRDECP115", "1212HUNT1200K", "AFF12MOI", "SPPVTQLC12", "1212EBVHOAN15K", "SPPVTQ12", "ELPANAPRO", "ELPANAVIP", "1212HUNT500K", "ELPANATOP1", "LIFESHCWG12", "LIFESBCWG12", "1212EBVHOAN70K", "SPPVX12", "LIFESBC12", "1212EBVFMCG100K", "LIFESHC12BAU", "LIFEB12500KD", "1212EBVMALL50K", "MKBHUGDEC", "COSLUX12B", "LIFEB12500KD", "ELDYSON2", "LIFEBK1260KC", "ELDYSON1", "1212EBVELHA1000K", "ELSAM6", "CCBDAYH1209", "112HOAN40K0PH", "CCBGG1201B", "CCBGG1201A", "CCBGG1201A", "SPPHOTEL12", "SPPDEC12EB1M2", "ELSSA04E", "ELSSA04E", "CCBDAYL1209", "SPPHTLC12", "SPPSE12", "SPPP1DECGMV40K", "CCBDAYL1209", "RWSDP0812GMALL", "SPPVXLC12", "SPPBAY12", "SPPBAYLC12"]");
+
+const btnSubmit = document.querySelector(
+  ".input-with-validator-wrapper + button"
+);
+const inputVoucher = document.querySelector(
+  '[placeholder="Nhập mã voucher tại đây"]'
+);
+const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+  window.HTMLInputElement.prototype,
+  "value"
+).set;
+const event = new Event("input", { bubbles: true });
+result.forEach(function (voucher, index) {
+  setTimeout(function () {
+    nativeInputValueSetter.call(inputVoucher, voucher);
+    inputVoucher.dispatchEvent(event);
+    btnSubmit.click();
+  }, index * 2000);
+});

@@ -1,0 +1,23 @@
+// Go to https://shopee.vn/user/voucher-wallet
+// then paste this code to F12 Console tab
+
+let result = JSON.parse("{{couponCodes}}");
+
+const btnSubmit = document.querySelector(
+  ".input-with-validator-wrapper + button"
+);
+const inputVoucher = document.querySelector(
+  '[placeholder="Nhập mã voucher tại đây"]'
+);
+const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+  window.HTMLInputElement.prototype,
+  "value"
+).set;
+const event = new Event("input", { bubbles: true });
+result.forEach(function (voucher, index) {
+  setTimeout(function () {
+    nativeInputValueSetter.call(inputVoucher, voucher);
+    inputVoucher.dispatchEvent(event);
+    btnSubmit.click();
+  }, index * 2000);
+});
